@@ -30,12 +30,16 @@ class App extends Component {
 		
 		const emplist = this.state.emplist;
 		
-		const searchedEmp= emplist.filter ( 
+			const searchedEmp= emplist.filter ( 
 			emp => emp.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
 										);
 		
 		return !searchedEmp.length ? 
-			<h1>Loading....</h1> :
+			(<div className='tc'>
+				<h1 className='f1'>MY SEARCH APP</h1>
+				<SearchBox searchChange={this.onSearchChange}/>
+				<h1>No cards fetched.....</h1>
+			</div>)	 :
 			
 			(<div className='tc'>
 				<h1 className='f1'>MY SEARCH APP</h1>
